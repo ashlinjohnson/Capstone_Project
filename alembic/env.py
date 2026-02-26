@@ -7,6 +7,9 @@ from alembic import context
 import os
 from dotenv import load_dotenv
 from app.database import Base
+import app.models
+import importlib
+import pkgutil
 
 load_dotenv()
 
@@ -28,6 +31,12 @@ config.set_main_option("sqlalchemy.url", DATABASE_URL)
 # This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
+
+for loader, module_name, is_pkg in pkgutil.walk_packages(
+    app.models.__path__,
+    app.models.__name__ + "."
+):
+    importlib.import_module(module_name)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
