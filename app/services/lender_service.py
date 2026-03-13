@@ -4,7 +4,7 @@ from app.data.lender_data import LenderData
 from app.services.base_service import BaseService
 
 
-class LenderService(BaseService[Lender]):
+class LenderService(BaseService[Lender, LenderData]):
 
     def __init__(self, db: Session, ):
         super().__init__(db, LenderData(db), "Lender")

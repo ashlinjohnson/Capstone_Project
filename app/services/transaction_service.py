@@ -7,8 +7,8 @@ from app.services.account_service import AccountService
 from app.services.base_service import BaseService
 
 
-class TransactionService(BaseService[Transaction]):
-    def __init__(self, db: Session, account_service: AccountService):
+class TransactionService(BaseService[Transaction, TransactionData]):
+    def __init__(self, db: Session):
         super().__init__(db, TransactionData(db), "Transaction")
         self.account_service = AccountService(db)
 

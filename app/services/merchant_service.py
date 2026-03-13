@@ -4,7 +4,7 @@ from app.data.merchant_data import MerchantData
 from app.services.base_service import BaseService
 
 
-class MerchantService(BaseService[Merchant]):
+class MerchantService(BaseService[Merchant, MerchantData]):
 
     def __init__(self, db: Session):
         super().__init__(db, MerchantData(db), "Merchant")

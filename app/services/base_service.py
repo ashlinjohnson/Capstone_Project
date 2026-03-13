@@ -1,11 +1,13 @@
 from typing import TypeVar, Generic
 from sqlalchemy.orm import Session
 from app.data.base_data import BaseData
+from app.models.base_model import BaseModel
 
-T = TypeVar("T")
+T = TypeVar("T", bound=BaseModel)
+D = TypeVar("D", bound=BaseData)
 
-class BaseService(Generic[T]):
-    def __init__(self, db: Session, data: BaseData[T], model_name: str):
+class BaseService(Generic[T, D]):
+    def __init__(self, db: Session, data: D, model_name: str):
         self.db = db
         self.data = data
         self.model_name = model_name

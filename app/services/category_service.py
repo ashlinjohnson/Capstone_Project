@@ -4,6 +4,6 @@ from app.models.category import Category
 from app.services.base_service import BaseService
 
 
-class CategoryService(BaseService[Category]):
+class CategoryService(BaseService[Category, CategoryData]):
     def __init__(self, db: Session):
         super().__init__(db, CategoryData(db), "Category")

@@ -4,13 +4,13 @@ from app.services.base_service import BaseService
 from app.utils.security import hash_password, verify_password
 from app.data.user_data import UserData
 
-class UserService(BaseService[User]):
+class UserService(BaseService[User, UserData]):
     def __init__(self, db: Session):
         super().__init__(db, UserData(db), "User")
 
 
     def create_user(self, username: str, email: str, password: str) -> User:
-        existing_user = self.read_user_email(email)
+        existing_user = self.data.read_user_email(email)
         if existing_user:
             if existing_user.deleted_at is not None:
                 raise ValueError("User account was previously deleted")

@@ -4,7 +4,7 @@ from app.models.account import Account
 from app.services.base_service import BaseService
 
 
-class AccountService(BaseService[Account]):
+class AccountService(BaseService[Account, AccountData]):
     def __init__(self, db: Session):
         super().__init__(db, AccountData(db), "Account")
 
