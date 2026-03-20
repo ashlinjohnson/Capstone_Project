@@ -9,8 +9,7 @@ function Navbar() {
  const name = currentUser?.firstName || "User";
 
  const logout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+  localStorage.removeItem("currentUser");
   navigate("/login");
  };
 

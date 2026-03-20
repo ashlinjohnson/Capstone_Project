@@ -19,25 +19,22 @@ const navigate = useNavigate()
 const [email,setEmail] = useState("")
 const [password,setPassword] = useState("")
 
-const handleLogin = async () => {
+const handleLogin = () => {
 
-  if (!email || !password) {
-    alert("Please enter email and password");
-    return;
+  if(!email || !password){
+    alert("Please enter email and password")
+    return
   }
 
-  try {
-    const response = await loginUser(email, password);
+  const user = loginUser(email,password)
 
-    localStorage.setItem("token", response.token);
-    localStorage.setItem("user", JSON.stringify(response.user));
-
-    navigate("/dashboard");
-
-  } catch (err) {
-    alert("Invalid email or password");
+  if(!user){
+    alert("Invalid email or password")
+    return
   }
-};
+
+  navigate("/dashboard")
+}
 
 return(
 

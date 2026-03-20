@@ -52,21 +52,17 @@ function Register(){
   });
  };
 
- const handleRegister = async (e) => {
-  e.preventDefault();
+ const handleRegister=(e)=>{
+  e.preventDefault()
 
-  if (formData.password !== formData.confirmPassword) {
-    alert("Passwords do not match");
-    return;
+  if(formData.password !== formData.confirmPassword){
+    alert("Passwords do not match")
+    return
   }
 
-  try {
-    await registerUser(formData);
-    navigate("/login");
-  } catch (err) {
-    alert("Registration failed");
-  }
-};
+  registerUser(formData)
+  navigate("/login")
+ }
 
  return(
 
