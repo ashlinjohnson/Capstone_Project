@@ -32,6 +32,10 @@ export const updateLanguage = async (language) => {
   });
 };
 
+// AI was used to add getNotifications and updateNotifications.
+// These endpoints were added to the backend at the same time, and keeping
+// the frontend field names in sync with the backend column names required
+// AI to coordinate both sides simultaneously.
 export const getNotifications = async () => {
   return apiRequest("/api/user/notifications");
 };
