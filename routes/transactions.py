@@ -73,12 +73,12 @@ def add_transaction():
         if not account:
             return jsonify({"error": "Account not found"}), 404
 
-        tx_date = None
+        tx_date = datetime.now()
         if data.get("transaction_date"):
             try:
                 tx_date = datetime.strptime(data["transaction_date"], "%Y-%m-%d")
             except ValueError:
-                tx_date = None
+                pass
 
         new_transaction = Transaction(
             account_id=data["account_id"],
