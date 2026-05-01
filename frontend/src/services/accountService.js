@@ -1,3 +1,6 @@
+// AI was used to add createAccount and deleteAccount.
+// These functions needed to match the exact request format expected
+// by the Flask backend, including HTTP methods and JSON body structure.
 import { apiRequest } from "./apiClient";
 
 export const getAccounts = async () => {

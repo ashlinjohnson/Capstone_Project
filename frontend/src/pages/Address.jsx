@@ -1,3 +1,7 @@
+// AI was used to build this page entirely.
+// The address page required a view/edit toggle, conditional rendering
+// based on whether an address already exists, and handling both POST (create)
+// and PUT (update) API calls — logic that was complex to structure from scratch.
 import {
   Box,
   Typography,

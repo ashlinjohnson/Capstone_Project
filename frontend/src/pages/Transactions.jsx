@@ -43,6 +43,11 @@ import { useFinance } from "../context/FinanceContext";
 import { createTransaction, deleteTransaction } from "../services/transactionService";
 import { apiRequest } from "../services/apiClient";
 
+// AI was used to add Month/Year filtering and the Add/Delete transaction UI.
+// The filtering logic required coordinating multiple state variables (search,
+// category, month, year) against dynamic transaction data. The add dialog
+// needed async category fetching from the backend, income/expense toggling,
+// and form validation — all wired to the shared FinanceContext refresh cycle.
 const MONTHS = [
   { value: 1, label: "January" }, { value: 2, label: "February" },
   { value: 3, label: "March" }, { value: 4, label: "April" },

@@ -74,7 +74,10 @@ function maskAccountNumber(id) {
   return `•••• •••• •••• ${base.slice(-4)}`;
 }
 
-// Monthly interest-only payment estimate
+// AI was used to implement the amortization formulas below.
+// Calculating loan payoff timelines and total interest requires financial math
+// (standard amortization formula) that is error-prone to derive manually,
+// especially handling edge cases like zero-rate loans or payments too small to pay off.
 function calcPayoffMonths(balance, apr, monthlyPayment) {
   if (!monthlyPayment || monthlyPayment <= 0) return null;
   const monthlyRate = apr / 100 / 12;
@@ -98,6 +101,10 @@ function addMonths(months) {
   return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }
 
+// AI was used to build the collapsible Debt Insights panel.
+// Structuring a dynamic table that combines payoff estimates, APR sorting,
+// and conditional highlighting across multiple debt types was complex to
+// coordinate manually alongside the existing card/chart layout.
 function Debts() {
   const navigate = useNavigate();
   const { t } = useLanguage();

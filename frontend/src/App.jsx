@@ -59,6 +59,7 @@ const router = createBrowserRouter([
       { path: "/profile/login", element: <LoginPreferences /> },
       { path: "/profile/alerts", element: <AlertsNotifications /> },
       { path: "/profile/language", element: <LanguageSettings /> },
+      // AI was used to add the /profile/address route alongside the new Address page.
       { path: "/profile/address", element: <Address /> }
     ]
   }

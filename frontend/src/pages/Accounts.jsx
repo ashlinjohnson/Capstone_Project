@@ -57,6 +57,10 @@ const DEFAULT_STYLE = {
   icon: <AccountBalanceIcon sx={{ fontSize: 36, color: "rgba(255,255,255,0.9)" }} />
 };
 
+// AI was used to implement the Add Account dialog and Delete Account functionality.
+// Managing async state across multiple dialogs (add, delete, form validation,
+// savings goal conditional fields) while keeping the UI in sync with the
+// FinanceContext refresh cycle was difficult to coordinate without AI assistance.
 function maskNumber(num) {
   if (!num) return "•••• ••••••";
   return "•••• " + String(num).slice(-4);
@@ -214,6 +218,9 @@ function Accounts() {
       )}
 
       {/* ACCOUNT CARDS */}
+      {/* AI was used to build the savings goal progress bar logic — calculating
+          percentage completion and capping it at 100% required coordinating
+          the balance vs goal amount across conditional rendering states. */}
       <Box sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 3 }}>
 
         {accounts.map((account) => {

@@ -1,3 +1,5 @@
+// AI was used to add the Address navigation card and integrate it
+// into the existing profile section layout.
 import {
   Box,
   Typography,

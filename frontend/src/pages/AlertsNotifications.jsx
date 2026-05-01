@@ -1,3 +1,7 @@
+// AI was used to connect this page to the backend.
+// Wiring the notification toggles to a GET (load on mount) and PUT (save)
+// API call, while handling loading states and error feedback, required
+// understanding the full request/response cycle with JWT authentication.
 import {
   Box,
   Typography,
